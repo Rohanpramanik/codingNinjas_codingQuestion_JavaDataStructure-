@@ -1,0 +1,32 @@
+public class Solution {
+	public static LinkedListNode<Integer> deleteNode(LinkedListNode<Integer> head, int pos) {
+		// Write your code here.
+
+       LinkedListNode<Integer> temp=head;
+       int  count=0;
+        if(head==null)
+        {
+            return head;
+        }
+        if(pos==0)
+        {
+            return temp.next;
+           // count++;
+            
+            
+        }
+		while(temp!=null && count<(pos-1))
+        {
+            temp=temp.next;
+            count++;
+        }
+        if(temp==null || temp.next==null)
+        {
+      return head;
+       
+        
+        }
+        temp.next=temp.next.next;
+        return head;
+    }
+}

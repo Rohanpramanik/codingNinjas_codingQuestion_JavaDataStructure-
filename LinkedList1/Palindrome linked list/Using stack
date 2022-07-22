@@ -1,0 +1,38 @@
+/*
+
+	Following is the Node class already written for the Linked List
+
+	class LinkedListNode<T> {
+    	T data;
+    	LinkedListNode<T> next;
+    
+    	public LinkedListNode(T data) {
+        	this.data = data;
+    	}
+	}
+
+*/
+import java.util.Stack;
+public class Solution {
+
+	public static boolean isPalindrome(LinkedListNode<Integer> head) {
+		//Your code goes here
+        Stack s = new Stack();
+        LinkedListNode<Integer> temp  =head;
+        while(temp != null){
+            s.push(temp.data);
+            temp = temp.next; 
+        }
+        temp =head;
+        while(temp!=null  && !s.isEmpty()){
+            if(s.peek() != temp.data){
+                return false;
+            }
+            temp  = temp.next;
+            s.pop();
+        }
+        return true;
+        
+ 	}
+
+}
